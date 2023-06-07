@@ -6,7 +6,7 @@ import { GoogleLogin } from "@react-oauth/google";
 import jwt_decode from "jwt-decode";
 import { useBoardStore } from "@/store/BoardStore";
 import { account } from "@/appwrite";
-import FacebookLogin from "react-facebook-login";
+//import FacebookLogin from "react-facebook-login";
 
 export default function Home() {
   const [credentials, setCredentials] = useBoardStore((state) => [
@@ -21,15 +21,16 @@ export default function Home() {
     console.warn(error);
   };
 
-  const githubAuth = (e: any) => {
+  const facebookAuth = (e: any) => {
     e.preventDefault();
 
     account.createOAuth2Session(
-      "github",
+      "facebook",
       "http://localhost:3000/",
       "http://localhost:3000/"
     );
-    const name = account.get().then((res) => console.log(res));
+    //const name = account.get().then((res) => console.log(res));
+
     //setCredentials(name);
   };
 
@@ -61,18 +62,8 @@ export default function Home() {
               logo_alignment="center"
             />
             <br />
-            <FacebookLogin
-              appId={process.env.NEXT_PUBLIC_FACEBOOK_ID!}
-              autoLoad={true}
-              fields="name,email,picture"
-              onClick={componentClicked}
-              callback={responseFacebook}
-              size="small"
-            />
+
             <br />
-            {/* <div>
-              <button onClick={(e) => githubAuth(e)}>Login with Github</button>
-            </div> */}
           </div>
         </div>
       )}
