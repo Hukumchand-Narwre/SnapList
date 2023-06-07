@@ -1,12 +1,12 @@
 import { databases } from "@/appwrite";
 
-export const getTodosGroupedByColumns = async () => {
+export const getTodosGroupedByColumns = async (props: any) => {
   const data = await databases.listDocuments(
     process.env.NEXT_PUBLIC_DATABASE_ID!,
     process.env.NEXT_PUBLIC_COLLECTION_ID!
   );
-  const todos = data.documents;
-
+  const todos = data.documents.filter((todo) => todo.name === props.email);
+  console.log(todos);
   const columns = todos.reduce((acc, todo) => {
     if (!acc.get(todo.status)) {
       acc.set(todo.status, {
@@ -19,6 +19,7 @@ export const getTodosGroupedByColumns = async () => {
       $createdAt: todo.$createdAt,
       title: todo.title,
       status: todo.status,
+      name: todo.name,
       ...(todo.image && { image: JSON.parse(todo.image) }),
     });
     return acc;
@@ -35,6 +36,12 @@ export const getTodosGroupedByColumns = async () => {
     }
   }
 
+  //finding correct user data
+  const specificUserColumns = new Map<TypedColumn, Column>(
+    Array.from(columns.entries()).filter(([key, value]) =>
+      value.todos.map((todo) => todo.name === "hukum")
+    )
+  );
   // sort them in order todo,inProgress,done
   const sortedColumns = new Map<TypedColumn, Column>(
     Array.from(columns.entries()).sort(

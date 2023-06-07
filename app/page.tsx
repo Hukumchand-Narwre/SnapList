@@ -16,7 +16,7 @@ export default function Home() {
     state.setCredentials,
   ]);
   const responseFacebook = (response: any) => {
-    setCredentials(response.name);
+    setCredentials({ name: response.name, email: response.email });
     console.log(response);
   };
   const componentClicked = (error: any) => {
@@ -37,7 +37,7 @@ export default function Home() {
 
   return (
     <main>
-      {credentials ? (
+      {credentials.name !== "" ? (
         <>
           <Header />
           <Board />
@@ -51,7 +51,10 @@ export default function Home() {
                 const userObject: any = jwt_decode(response.credential!);
 
                 console.log(userObject);
-                setCredentials(userObject.name);
+                setCredentials({
+                  name: userObject.name,
+                  email: userObject.email,
+                });
               }}
               onError={() => {
                 console.log("Login Failed");

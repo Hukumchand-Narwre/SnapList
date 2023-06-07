@@ -33,9 +33,10 @@ const Header = () => {
     };
     fetchSuggestionFunc();
   }, [board]);
+
   const logoutHandler = () => {
     googleLogout();
-    setCredentials("");
+    setCredentials({ name: "", email: "" });
   };
   return (
     <header>
@@ -64,7 +65,8 @@ const Header = () => {
           </form>
           <Avatar
             className=" cursor-pointer "
-            name={credentials}
+            name={credentials.name}
+            email={credentials.email}
             round
             size="50"
             color="#0055D1"

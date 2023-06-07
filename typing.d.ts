@@ -14,9 +14,15 @@ interface Todo {
   title: string;
   status: TypedColumn;
   images?: Image;
+  name: string | null;
 }
 
 interface Image {
   bucketId: string;
   fileId: string;
 }
+
+type UserCredential = {
+  name: string;
+  email: string;
+};

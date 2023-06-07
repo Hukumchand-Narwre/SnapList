@@ -11,8 +11,8 @@ interface BoardState {
   searchString: string;
   newTaskInput: string;
   newTaskType: TypedColumn;
-  credentials: string;
-  setCredentials: (credentials: string) => void;
+  credentials: UserCredential;
+  setCredentials: (credentials: UserCredential) => void;
   // modalnewTaskInput: string;
   // setModalnewTaskInput: (input: string) => void;
   // image: File | null;
@@ -28,8 +28,10 @@ export const useBoardStore = create<BoardState>((set, get) => ({
   board: {
     columns: new Map<TypedColumn, Column>(),
   },
+  credentials: { name: "", email: "" },
   getBoard: async () => {
-    const board = await getTodosGroupedByColumns();
+    console.log(get().credentials);
+    const board = await getTodosGroupedByColumns(get().credentials);
     set({ board });
   },
   setBoardState: (board) => set({ board }),
@@ -37,7 +39,6 @@ export const useBoardStore = create<BoardState>((set, get) => ({
   newTaskInput: "",
   // modalnewTaskInput: "",
   newTaskType: "todo",
-  credentials: "",
   setCredentials: (credentials) => set({ credentials }),
   //image: null,
   //setImage: (image: File | null) => set({ image }),
@@ -72,6 +73,7 @@ export const useBoardStore = create<BoardState>((set, get) => ({
     );
   },
   addTask: async (todo: string, columId: TypedColumn) => {
+    const name = get().credentials;
     const { $id } = await databases.createDocument(
       process.env.NEXT_PUBLIC_DATABASE_ID!,
       process.env.NEXT_PUBLIC_COLLECTION_ID!,
@@ -79,8 +81,10 @@ export const useBoardStore = create<BoardState>((set, get) => ({
       {
         title: todo,
         status: columId,
+        name: name.email,
       }
     );
+
     set({ newTaskInput: "" });
     set((state) => {
       const newColumns = new Map(state.board.columns);
@@ -89,6 +93,7 @@ export const useBoardStore = create<BoardState>((set, get) => ({
         $createdAt: new Date().toISOString(),
         title: todo,
         status: columId,
+        name: state.credentials.email,
       };
       const column = newColumns.get(columId);
       if (!column) {
