@@ -2,7 +2,7 @@
 import Board from "@/components/Board";
 import Header from "@/components/Header";
 import { useState } from "react";
-import { GoogleLogin } from "@react-oauth/google";
+import { GoogleLogin, GoogleOAuthProvider } from "@react-oauth/google";
 import jwt_decode from "jwt-decode";
 import { useBoardStore } from "@/store/BoardStore";
 import { account } from "@/appwrite";
@@ -35,38 +35,40 @@ export default function Home() {
   };
 
   return (
-    <main>
-      {credentials.name !== "" ? (
-        <>
-          <Header />
-          <Board />
-        </>
-      ) : (
-        <div className="flex gap-2 items-center justify-center h-screen  ">
-          <div className="flex flex-col items-center p-10 rounded-lg border-x-slate-200 ring-offset-2 ring-4  text-center shadow-sm bg-white/50 ">
-            <h2 className=" font-bold text-3xl mb-6 ">Login Using</h2>
-            <GoogleLogin
-              onSuccess={(response) => {
-                const userObject: any = jwt_decode(response.credential!);
+    <GoogleOAuthProvider clientId={process.env.NEXT_PUBLIC_GOOGLEAUTH_ID!}>
+      <main>
+        {credentials.name !== "" ? (
+          <>
+            <Header />
+            <Board />
+          </>
+        ) : (
+          <div className="flex gap-2 items-center justify-center h-screen  ">
+            <div className="flex flex-col items-center p-10 rounded-lg border-x-slate-200 ring-offset-2 ring-4  text-center shadow-sm bg-white/50 ">
+              <h2 className=" font-bold text-3xl mb-6 ">Login Using</h2>
+              <GoogleLogin
+                onSuccess={(response) => {
+                  const userObject: any = jwt_decode(response.credential!);
 
-                console.log(userObject);
-                setCredentials({
-                  name: userObject.name,
-                  email: userObject.email,
-                });
-              }}
-              onError={() => {
-                console.log("Login Failed");
-              }}
-              shape="square"
-              logo_alignment="center"
-            />
-            <br />
+                  console.log(userObject);
+                  setCredentials({
+                    name: userObject.name,
+                    email: userObject.email,
+                  });
+                }}
+                onError={() => {
+                  console.log("Login Failed");
+                }}
+                shape="square"
+                logo_alignment="center"
+              />
+              <br />
 
-            <br />
+              <br />
+            </div>
           </div>
-        </div>
-      )}
-    </main>
+        )}
+      </main>
+    </GoogleOAuthProvider>
   );
 }

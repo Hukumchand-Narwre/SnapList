@@ -13,11 +13,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="bg-[#F5F6F8]">
-        <GoogleOAuthProvider clientId={process.env.NEXT_PUBLIC_GOOGLEAUTH_ID!}>
-          {children}
-        </GoogleOAuthProvider>
-      </body>
+      <body className="bg-[#F5F6F8]">{children}</body>
     </html>
   );
 }
