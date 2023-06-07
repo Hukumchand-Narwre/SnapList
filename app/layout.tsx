@@ -1,4 +1,3 @@
-"use client";
 import "./globals.css";
 import { GoogleOAuthProvider } from "@react-oauth/google";
 export const metadata = {
