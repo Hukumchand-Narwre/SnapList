@@ -8,8 +8,6 @@ import { useBoardStore } from "@/store/BoardStore";
 import { account } from "@/appwrite";
 import FacebookLogin from "react-facebook-login";
 
-import { exit } from "process";
-
 export default function Home() {
   const [credentials, setCredentials] = useBoardStore((state) => [
     state.credentials,

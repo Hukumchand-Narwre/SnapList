@@ -64,9 +64,8 @@ const Header = () => {
             </button>
           </form>
           <Avatar
-            className=" cursor-pointer "
+            className="cursor-pointer"
             name={credentials.name}
-            email={credentials.email}
             round
             size="50"
             color="#0055D1"
