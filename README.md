@@ -1,35 +1,40 @@
 # Project Name
 
-* Trello Clone with Next.js, Tailwind CSS, react-beautiful-dnd, Zustand, and TypeScript*
+Trello Clone with Next.js, Tailwind CSS, react-beautiful-dnd, Zustand, and TypeScript 
 
 ## Description
 
-This project is a Netflix clone built using React, leveraging the power of the Movie Trailer API and React-YouTube.This is the first time I have made a project that deals with 
-playing video on site
+This project is a Trello-inspired application built with Next.js, Tailwind CSS, React Beautiful DND, Zustand for state management, and TypeScript. It provides a user-friendly interface for managing tasks, columns 
 ## Demo
 
-URL - https://storied-crepe-d83f2a.netlify.app/
+URL - https://trello-two-iota.vercel.app/
 
 ## Challenges Faced
 
-This was my first attempt at making a video streaming platform. Understanding how everything connects — from fetching movie data to playing trailers seamlessly
+Implementing dynamic drag-and-drop functionality for tasks and columns using react-beautiful-dnd posed a challenge. I needed to ensure a smooth user experience while handling state changes
 
-Designing a user-friendly interface that resembled Netflix posed its own set of challenges.
+Integrating Google OAuth for user authentication was a new and exciting challenge. Navigating through the Google Cloud Console, understanding OAuth flows, and securely implementing Google Login
 
-## Technology Used
- React:  The application is developed using React, providing a robust and efficient front-end framework for building user interfaces.
-Movie Trailer API: Integrates the Movie Trailer API to fetch movie data, including titles, posters, and trailer links.
-React-YouTube: Employs the React-YouTube library to embed and play YouTube videos seamlessly within the application.
+# Technologies Used
+
+- **Next.js:** The project is built on Next.js
+  
+- **Zustand:** Zustand is used for state management, offering a simple and efficient solution to handle application state.
+
+- **Tailwind CSS:** Tailwind CSS is employed for styling, allowing for rapid development and easy customization with utility-first classes.
+
+- **React Beautiful DND:** React Beautiful DND is used to implement dynamic drag-and-drop functionality
+
 
 ## Deployment
-Deployed the project using Netlify
+Deployed the project using Vercel
 
-## Create-react-app for Installing React
+##  create-next-app
 ```bash
-npx create-react-app my-app
+npx create-next-app@latest
 ```
 
 ## Run the app using
 ```bash
- npm run start
+ npm run dev
 ```
