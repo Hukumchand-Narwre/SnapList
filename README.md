@@ -4,7 +4,7 @@ Trello Clone with Next.js, Tailwind CSS, react-beautiful-dnd, Zustand, and TypeS
 
 ## Description
 
-This project is a Trello-inspired application built with Next.js, Tailwind CSS, React Beautiful DND, Zustand for state management, and TypeScript. It provides a user-friendly interface for managing tasks, columns 
+This project is a Trello-inspired application built with Next.js, Tailwind CSS, react-beautiful-dnd, Zustand for state management, and TypeScript. It provides a user-friendly interface for managing tasks, columns 
 ## Demo
 
 URL - https://trello-two-iota.vercel.app/
