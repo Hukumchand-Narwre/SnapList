@@ -11,10 +11,9 @@ This site is built for all se­eking a simple and spee­dy way to monitor routin
 URL - https://trello-two-iota.vercel.app/
 
 ## Project summary
-
-Implementing dynamic drag-and-drop functionality for tasks and columns using react-beautiful-dnd posed a challenge. I needed to ensure a smooth user experience while handling state changes
-
-Integrating Google OAuth for user authentication was a new and exciting challenge. Navigating through the Google Cloud Console, understanding OAuth flows, and securely implementing Google Login
+**challenges**
+In building this task management website, creating smooth drag-and-drop task functionality with React Beautiful DND was a bit tricky. Another exciting challenge was integrating Google OAuth for secure user logins, involving navigation through Google Cloud Console and implementing Google Login securely.
+![Untitled Workspace (1)](https://github.com/Hukumchand-Narwre/trello/assets/85044429/893196c4-c1de-48b2-9a47-f26db968fa06)
 
 # Technologies Used
 
