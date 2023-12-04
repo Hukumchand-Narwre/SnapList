@@ -13,7 +13,9 @@ URL - https://trello-two-iota.vercel.app/
 ## Project summary
 
 In building this task management website, creating smooth drag-and-drop task functionality with React Beautiful DND was a bit tricky. Another exciting challenge was integrating Google OAuth for secure user logins, involving navigation through Google Cloud Console and implementing Google Login securely.
-![Untitled Workspace (3)](https://github.com/Hukumchand-Narwre/trello/assets/85044429/7433c348-3ba5-483e-9364-ccf420be0d79)
+
+
+![Untitled-2023-12-04-1110](https://github.com/Hukumchand-Narwre/SnapList/assets/85044429/2cb54993-d5e9-4f8c-bca5-1a87673c7d1c)
 
 
 # Technologies Used
