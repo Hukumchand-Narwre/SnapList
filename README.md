@@ -46,11 +46,11 @@ You can download and install Node.js from https://nodejs.org/
 **Installation steps**
 - **1. Clone the repository**
 ```bash
-git clone https://github.com/Hukumchand-Narwre/trello.git
+git clone [https://github.com/Hukumchand-Narwre/trello.git](https://github.com/Hukumchand-Narwre/SnapList.git)
 ```
 - **2. Navigate to project directory**
 ```bash
-cd trello
+cd snapList
 ```
 - **3. Install dependencies**
 ```bash
